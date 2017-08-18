@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/AlumnosWebApp/Properties/PublishProfiles/alumnosweb-luisb - FTP.pubxml
+/AlumnosWebApp/Properties/PublishProfiles/alumnosweb-luisb - Web Deploy.pubxml
