@@ -22,6 +22,13 @@ namespace AlumnosWebApp.Controllers
             return db.Tareas.OrderByDescending(x => x.FechaPublicacion);
         }
 
+        // GET: api/Tareas/GetTareasNoRealizadasByAlumno/{idAlumno}
+        [Route("api/Tareas/GetTareasNoRealizadasByAlumno/{idAlumno}")]
+        public IQueryable<Tarea> GetTareas(int idAlumno)
+        {
+            return db.Tareas.Where(t => !db.TareaAlumnoes.Any(ta => ta.IdAlumno == idAlumno && ta.IdTarea == t.Id)).OrderBy(x => x.FechaLimite);
+        }
+
         // GET: api/Tareas/5
         [ResponseType(typeof(Tarea))]
         public IHttpActionResult GetTarea(int id)

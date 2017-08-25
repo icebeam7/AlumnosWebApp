@@ -23,6 +23,14 @@ namespace AlumnosWebApp.Controllers
             return data;
         }
 
+        [Route("api/TareaAlumnos/GetTareasRealizadasByAlumno/{idAlumno}/{evaluado}")]
+        public List<TareaAlumno> GetTareasRealizadasByAlumno(int idAlumno, bool evaluado)
+        {
+            var data = db.TareaAlumnoes.Where(x => x.IdAlumno == idAlumno && x.Evaluado == evaluado).ToList();
+            db.Configuration.LazyLoadingEnabled = false;
+            return data;
+        }
+
         [Route("api/TareaAlumnos/GetTareaAlumnosByEval/{evaluado}")]
         public List<TareaAlumno> GetTareaAlumnosByEval(bool evaluado)
         {
